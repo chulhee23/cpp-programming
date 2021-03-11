@@ -20,7 +20,7 @@ int main()
   // 차의 절댓값
   cout << abs(a-b) << ' ';
   // 곱
-  cout << (a+b) << ' ';
+  cout << (a*b) << ' ';
   // 몫
   cout << (a / b) << ' ';
   // 나머지
