@@ -3,7 +3,7 @@
 using namespace std;
 
 int factorial(int n);
-int comnination(int n, int k);
+int combination(int n, int k);
 
 int main()
 {
