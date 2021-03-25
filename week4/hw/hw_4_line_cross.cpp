@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 void Compare(int hx1, int hx2, int hy, int vx, int vy1, int vy2)
