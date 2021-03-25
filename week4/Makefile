@@ -9,8 +9,15 @@ dicetest:dicetest.o random.o
 dicetest.o:dicetest.cpp
 	$(CC) -c $^
 
-random.o:random.cpp
+guess:guess.o random.o
+	$(CC) -o guess.out $^ 
+
+guess.o: guess.cpp 
 	$(CC) -c $^
 
+random.o: random.cpp
+	$(CC) -c $^
+
+
 clean:
-	rm -f *.o *.out
+	rm -f *.o
