@@ -25,9 +25,7 @@ int tri(){
   {
     return 2;
   }
-  // if (x <= y + z || y <= x + z || z <= x + y)
-  // {
-  // }
+  
   return 3;
 }
 
