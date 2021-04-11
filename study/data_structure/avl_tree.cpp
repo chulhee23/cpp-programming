@@ -158,7 +158,7 @@ nodeAVL *classAVL::lr(nodeAVL *parent)
   temp = parent->left;
   parent->left = rr(temp);
   return ll(parent);
-}
+} 
 
 // RL 회전 함수입니다.
 nodeAVL *classAVL::rl(nodeAVL *parent)
