@@ -2,7 +2,7 @@
 using namespace std;
 
 
-
+// isalpha 로 수정하기!!
 int main(int argc, char *argv[])
 {
   cout << argc << endl;
