@@ -25,7 +25,7 @@ int RollDie(void);
 int main()
 {
     int i;
-
+    Randomize();
     for (i = 0; i < NTrials; i++) {
         cout << RollDie() << endl;
     }
