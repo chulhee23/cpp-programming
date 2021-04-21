@@ -1,8 +1,9 @@
 #include <iostream>
-#include "time.cpp"
+#include "Time.h"
 using namespace std;
 
-int main(){
+int main(int argc, char const *argv[])
+{
   string timeTable[] = {"수업 시간", "점심 시간", "저녁 시간", "취침 시간"};
   int hours[] = {11, 12, 18, 0};
   int minutes[] = {0, 30, 30, 30};
