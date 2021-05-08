@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
@@ -26,13 +27,14 @@ public:
 };
 
 // constructor
-Kvector::Kvector(int a, int b) : len(a) {
-  cout << this << " : Kvector(int)" << endl;
-  m = new int[a];
-  for (int i = 0; i < a; i++)
+Kvector::Kvector(int sz, int value) : len(sz) {
+  if (!sz) m = nullptr;
+  m = new int[sz];
+  for (int i = 0; i < sz; i++)
   {
-    m[i] = b;
+    m[i] = value;
   }
+  cout << this << " : Kvector(int, int)" << endl;
 }
 
 // deep copy constructor
@@ -84,11 +86,12 @@ bool Kvector::operator!=(const Kvector& v){
 
 
 int& Kvector::operator[](int idx){
-  if(idx >= 0 ){
-    return m[idx];
-  } else {
-    return m[0];
-  }
+  assert(idx < 0 || idx >= len);
+  return m[idx];
+  // if(idx >= 0 ){
+  // } else {
+  //   return m[0];
+  // }
 }
 
 ostream& operator<<(ostream& os, const Kvector& v){
