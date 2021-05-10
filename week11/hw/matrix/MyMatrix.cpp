@@ -66,13 +66,12 @@ myMatrix myMatrix::operator+(const myMatrix &mat) const
 {
   if ((rows != mat.rows) || (cols != mat.cols))
     errorMessage("cannot add two matrices of different size");
-  
-  for(int i = 0; i < rows; i++){
-    for(int j = 0; j < cols; j++){
-      *this[i][j] += mat[i][j];
-    }
-  }
-  return *this;
+
+  myMatrix temp(*this);
+  for (int i = 0; i < rows; i++)
+    for (int j = 0; j < cols; j++)
+      temp.pData[i][j] += mat.pData[i][j];
+  return temp;
 }
 
 myMatrix myMatrix::operator-(const myMatrix &mat) const
@@ -172,12 +171,12 @@ myMatrix &myMatrix::transpose()
 {
   myMatrix temp(*this);
   this->deleteMemory();
-  this->rows = temp.cols;
-  this->cols = temp.rows;
+  rows = temp.cols;
+  cols = temp.rows;
   this->allocateMemory();
   for (int i = 0; i < rows; i++)
     for (int j = 0; j < cols; j++)
-      this->pData[i][j] = temp.pData[j][i];
+      pData[i][j] = temp.pData[j][i];
 
   return *this;
 }
