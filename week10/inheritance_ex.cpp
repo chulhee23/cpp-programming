@@ -37,8 +37,17 @@ void Manager::modify(int s, int b){
 void Manager::display(){
   cout << "봉급: " << salary << " 보너스: " << bonus << endl;
   // cout << rrn; //impossible. private member
-
 }
+
+class Car{
+  public:
+  int getHP(){return 100;}
+};
+class SportsCar: public Car{
+  public: 
+  int getHP(){return 300;}
+};
+
 
 int main(int argc, char const *argv[]){
   Manager m;
@@ -46,4 +55,8 @@ int main(int argc, char const *argv[]){
   m.display();
   m.modify(1320, 1000);
   m.display();
+
+  SportsCar c;
+  cout << c.getHP() << endl;
+  cout << c.Car::getHP() << endl;
 }
