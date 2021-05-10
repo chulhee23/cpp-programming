@@ -1,14 +1,14 @@
 #include <iostream>
 #include "MyComplex.h"
-void testSimpleCase();
-void testDataFromFile();
-
 using namespace std;
 
-void main(void)
+void testSimpleCase();
+void testDataFromFile();
+int main()
 {
   testSimpleCase();
   testDataFromFile();
+  return 1;
 }
 void testSimpleCase()
 {
@@ -16,6 +16,7 @@ void testSimpleCase()
   myComplex c3(c2);
   myComplex c4, c5, c6, c7, c8, c9;
   // test constructor
+
   cout << c0 << endl
        << c1 << endl
        << c2 << endl;
@@ -77,7 +78,7 @@ void testSimpleCase()
   c4 = myComplex(5, 6);
   c5 = myComplex(6, 7);
   c6 = 3;
-  cout << -(c1 * c2) - 2 * c3 + ~c4 * c5 * 3 + 2 –c6 << endl;
+  cout << -(c1 * c2) - 2 * c3 + ~c4 * c5 * 3 + 2 - c6 << endl;
 }
 
 void testDataFromFile()

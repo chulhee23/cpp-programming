@@ -39,6 +39,42 @@ myComplex myComplex::operator+(const myComplex& number) const{
 myComplex myComplex::operator+(int value) const{
   return myComplex(value) + (*this);
 }
+
+myComplex myComplex::operator+=(const myComplex& number) {
+  *this = *this + number;
+  return *this;
+}
+
+myComplex myComplex::operator++(){
+  realPart++;
+  return *this;
+}
+myComplex myComplex::operator++(int){
+  myComplex temp = *this;
+  ++*this;
+  return temp;
+}
+
+myComplex myComplex::operator--(){
+  realPart--;
+  return *this;
+}
+myComplex myComplex::operator--(int) {
+  myComplex temp = *this;
+  --*this;
+  return temp;
+}
+
+myComplex myComplex::operator*(const myComplex &number) const {
+  int newReal = realPart * number.realPart - imaginaryPart * number.imaginaryPart;
+  int newImag = realPart * number.imaginaryPart + imaginaryPart * number.realPart;
+  return myComplex(newReal, newImag);
+}
+
+myComplex myComplex::operator*(int value) const {
+  return myComplex(realPart * value, imaginaryPart * value);
+}
+
 // Assignment operators
 myComplex& myComplex::operator=(const myComplex& number){
   this->realPart = number.realPart;
@@ -76,18 +112,25 @@ myComplex myComplex::operator -()// unary minus
 {
   return myComplex(-realPart, -imaginaryPart);
 }
+myComplex myComplex::operator~()// unary minus
+{
+  return myComplex(realPart, -imaginaryPart);
+}
 
 // private function
 int myComplex::norm() const{
   return realPart * realPart + imaginaryPart * imaginaryPart;
 }
 
-ostream &operator <<(ostream &outStream, const myComplex& number){
+ostream &operator<<(ostream &outStream, const myComplex& number){
   outStream << "(" << number.realPart << "," << number.imaginaryPart << ")";
   return outStream;
 }
 
-istream &operator >>(istream &inStream, myComplex& number){
+istream &operator>>(istream &inStream, myComplex& number){
+  // if (not be constructed)
+  // inStream.setstate(ios::failbit);
   inStream >> number.realPart >> number.imaginaryPart;
+  // inStream >> number.imaginaryPart;
   return inStream;
 }

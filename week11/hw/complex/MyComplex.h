@@ -21,21 +21,45 @@ public:
   // Overloaded binary operators
   myComplex operator+(const myComplex &number) const;
   myComplex operator+(int value) const;
+  friend myComplex operator+(int value, const myComplex& number){return number + value;};
+  myComplex operator+=(const myComplex &number);
+  myComplex operator++();
+  myComplex operator++(int);
   
+  
+  myComplex operator*(const myComplex &number) const;
+  myComplex operator*(int value) const;
+  friend myComplex operator*(int value, const myComplex &number){return (number * value);};
+  myComplex operator*=(const myComplex &number){*this = *this * number; return *this;};
+  myComplex operator*=(int value){*this = *this * value; return *this;};
+
   // Overloaded assignment operators
   myComplex &operator=(const myComplex &number);
   myComplex &operator=(int value);
-  
   // Overloading relational operators
   bool operator==(const myComplex &number) const;
+  bool operator!=(const myComplex &number) const{return !(*this == number);};
   
   // Overloaded unary operators
   myComplex operator-(); // unary minus
+  myComplex operator~();
 
-  // =====start
+  myComplex operator-(const myComplex &number) const {return *this + (-1 * number);};
+  myComplex operator-(int value) const {return *this + (-value);};
+  friend myComplex operator-(int value, const myComplex &number){return -(number - value);};
+  myComplex operator-=(const myComplex &number){return *this += (-1 * number);};
+  myComplex operator--();
+  myComplex operator--(int);
+
+  bool operator>(const myComplex& number) const;
+  bool operator>=(const myComplex &number) const;
+  bool operator<(const myComplex &number) const;
+  bool operator<=(const myComplex &number) const;
+
+
+  friend ostream& operator<<(ostream& outStream, const myComplex& number);
+  friend istream& operator>>(istream& inStream, myComplex& number);
   
-  
-  // =====end
 private:
   int realPart;
   int imaginaryPart;
