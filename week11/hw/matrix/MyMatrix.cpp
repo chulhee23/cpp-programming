@@ -212,7 +212,11 @@ void myMatrix::errorMessage(string str) const
 // friend functions
 myMatrix operator*(int value, const myMatrix &mat)
 {
-  return(mat * value);
+  myMatrix temp(mat);
+  for (int i = 0; i < mat.rows; i++)
+    for (int j = 0; j < mat.cols; j++)
+      temp.pData[i][j] *= value;
+  return temp;
 }
 
 ostream &operator<<(ostream &outStream, const myMatrix &mat)
